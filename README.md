@@ -21,7 +21,7 @@
 ## 🛠️ Teknolojiler
 
 <p>
-  <img src="https://skillicons.dev/icons?i=cs,dotnet,html,css,js,sql,git,github,visualstudio,vscode" alt="Technologies" />
+  <img src="https://skillicons.dev/icons?i=cs,dotnet,sql,git,github,visualstudio,vscode" alt="Technologies" />
 </p>
 
 ## 🚀 Şu anda öğreniyorum
