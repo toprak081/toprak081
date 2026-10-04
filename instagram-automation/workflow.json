@@ -1,0 +1,94 @@
+{
+  "name": "Instagram Zamanlanmis Paylasim + Claude Icerik Uretimi",
+  "nodes": [
+    {
+      "parameters": {
+        "rule": { "interval": [ { "field": "days", "triggerAtHour": 10 } ] }
+      },
+      "name": "Her gun 10:00",
+      "type": "n8n-nodes-base.scheduleTrigger",
+      "typeVersion": 1.2,
+      "position": [0, 0]
+    },
+    {
+      "parameters": {
+        "assignments": {
+          "assignments": [
+            { "id": "1", "name": "topic", "value": "BURAYA KONU YAZ (orn: sabah rutini ipuclari)", "type": "string" },
+            { "id": "2", "name": "imageUrl", "value": "https://BURAYA-HERKESE-ACIK-GORSEL-URL.jpg", "type": "string" },
+            { "id": "3", "name": "igUserId", "value": "BURAYA_INSTAGRAM_BUSINESS_ACCOUNT_ID", "type": "string" }
+          ]
+        }
+      },
+      "name": "Ayarlar (konu, gorsel, IG ID)",
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 3.4,
+      "position": [220, 0]
+    },
+    {
+      "parameters": {
+        "method": "POST",
+        "url": "https://api.anthropic.com/v1/messages",
+        "authentication": "genericCredentialType",
+        "genericAuthType": "httpHeaderAuth",
+        "sendHeaders": true,
+        "headerParameters": { "parameters": [ { "name": "anthropic-version", "value": "2023-06-01" } ] },
+        "sendBody": true,
+        "specifyBody": "json",
+        "jsonBody": "={{ JSON.stringify({ model: 'claude-sonnet-5-5', max_tokens: 500, messages: [ { role: 'user', content: 'Instagram icin Turkce, samimi, 2-3 cumlelik bir caption yaz ve sonuna 5 ilgili hashtag ekle. Konu: ' + $json.topic + '. Sadece caption metnini dondur.' } ] }) }}"
+      },
+      "name": "Claude: caption uret",
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.2,
+      "position": [440, 0],
+      "credentials": { "httpHeaderAuth": { "id": "", "name": "Anthropic API Key (header: x-api-key)" } }
+    },
+    {
+      "parameters": {
+        "method": "POST",
+        "url": "=https://graph.facebook.com/v21.0/{{ $('Ayarlar (konu, gorsel, IG ID)').item.json.igUserId }}/media",
+        "authentication": "genericCredentialType",
+        "genericAuthType": "httpQueryAuth",
+        "sendBody": true,
+        "specifyBody": "json",
+        "jsonBody": "={{ JSON.stringify({ image_url: $('Ayarlar (konu, gorsel, IG ID)').item.json.imageUrl, caption: $json.content[0].text }) }}"
+      },
+      "name": "IG: medya konteyneri olustur",
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.2,
+      "position": [660, 0],
+      "credentials": { "httpQueryAuth": { "id": "", "name": "Instagram Graph Token (query: access_token)" } }
+    },
+    {
+      "parameters": { "amount": 30, "unit": "seconds" },
+      "name": "Bekle (islenmesi icin)",
+      "type": "n8n-nodes-base.wait",
+      "typeVersion": 1.1,
+      "position": [880, 0]
+    },
+    {
+      "parameters": {
+        "method": "POST",
+        "url": "=https://graph.facebook.com/v21.0/{{ $('Ayarlar (konu, gorsel, IG ID)').item.json.igUserId }}/media_publish",
+        "authentication": "genericCredentialType",
+        "genericAuthType": "httpQueryAuth",
+        "sendBody": true,
+        "specifyBody": "json",
+        "jsonBody": "={{ JSON.stringify({ creation_id: $('IG: medya konteyneri olustur').item.json.id }) }}"
+      },
+      "name": "IG: yayinla",
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.2,
+      "position": [1100, 0],
+      "credentials": { "httpQueryAuth": { "id": "", "name": "Instagram Graph Token (query: access_token)" } }
+    }
+  ],
+  "connections": {
+    "Her gun 10:00": { "main": [ [ { "node": "Ayarlar (konu, gorsel, IG ID)", "type": "main", "index": 0 } ] ] },
+    "Ayarlar (konu, gorsel, IG ID)": { "main": [ [ { "node": "Claude: caption uret", "type": "main", "index": 0 } ] ] },
+    "Claude: caption uret": { "main": [ [ { "node": "IG: medya konteyneri olustur", "type": "main", "index": 0 } ] ] },
+    "IG: medya konteyneri olustur": { "main": [ [ { "node": "Bekle (islenmesi icin)", "type": "main", "index": 0 } ] ] },
+    "Bekle (islenmesi icin)": { "main": [ [ { "node": "IG: yayinla", "type": "main", "index": 0 } ] ] }
+  },
+  "settings": { "executionOrder": "v1" }
+}
