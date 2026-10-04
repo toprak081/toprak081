@@ -1,0 +1,59 @@
+ORNEK 3
+GORSEL PROMPT:
+Create a PREMIUM, PHOTOREALISTIC restaurant advertisement for CASA, specifically designed as a vertical Instagram feed post.
+FORMAT:
+4:5 vertical Instagram feed format.
+1080 × 1350 composition.
+All important text, logo and ordering-platform logos must remain safely inside the Instagram crop area.
+BRAND & LOGO
+The attached Casa logo is the restaurant's official brand logo.
+CRITICAL LOGO INSTRUCTION:
+Use the PROVIDED CASA LOGO EXACTLY as supplied.
+Do NOT: redraw, recreate, redesign the logo; change its typography, colors or proportions; stretch, distort, simplify or reinterpret it; replace it with AI-generated text; create an alternative Casa logo.
+The supplied Casa logo must remain visually identical to the original reference.
+Place the logo naturally in a clean premium position, preferably in the upper portion of the composition.
+MAIN CONCEPT
+Create a restaurant advertisement built around the message: “HÂLÂ DENEMEDİN Mİ?”
+Secondary text: “BURGER • MAKARNA • PİZZA”
+The visual should immediately make the viewer hungry and curious about Casa.
+FOOD — HIGHEST PRIORITY
+Show THREE hero food products together: 1. PREMIUM BURGER 2. CREAMY PASTA 3. FRESHLY BAKED PIZZA
+The food must look like REAL FOOD photographed by a professional restaurant photographer. The biggest priority is PHOTOREALISM.
+The food must NOT look like AI-generated food, 3D render, CGI, plastic food, cutout images, PNG objects, stickers, digitally pasted photographs.
+The three dishes must look as if they were PHYSICALLY PRESENT ON THE TABLE AT THE EXACT MOMENT THE PHOTOGRAPH WAS TAKEN.
+PHYSICAL CONTACT & GROUNDING
+The burger, pasta plate and pizza must physically interact with the table surface. Every object must have realistic contact shadows, subtle ambient occlusion, realistic weight, natural grounding, soft shadows directly beneath objects, realistic reflections where appropriate.
+Nothing may appear to float. NO visible gap between plates and the table. NO artificial drop shadows. NO dark outlines around the food. The food must naturally belong to the environment.
+CAMERA & PERSPECTIVE
+The entire composition must look like ONE SINGLE PHOTOGRAPH captured with ONE physical camera. All dishes share the same perspective, camera height, viewing angle, focal characteristics, lens behavior and depth of field. Do NOT composite separately photographed food. Use a professional full-frame camera with a high-end 100mm food-photography lens.
+DEPTH OF FIELD
+Use REAL optical depth of field. Closer objects sharper, farther objects naturally softer. No artificial background cutout blur.
+LIGHTING
+All food and the environment are illuminated by the SAME physical light source (same direction, softness, intensity, color temperature, highlights, shadows). Warm cinematic restaurant lighting around 3000–3200K with subtle warm amber/golden bokeh in the background.
+TABLE & ENVIRONMENT
+Realistic dark walnut restaurant table with natural wood texture, subtle imperfections and realistic reflections. The dishes actually sit on this table. The environment feels like a real restaurant photographed at the same moment as the food.
+BURGER REALISM
+Premium beef burger: naturally toasted glossy bun, realistic bun pores, irregular natural shape, juicy beef patty with grilled texture, naturally melted cheese, fresh ingredients, realistic moisture, subtle imperfections. Not perfectly symmetrical.
+PASTA REALISM
+Freshly prepared restaurant pasta: naturally varying shapes, realistic cooked texture, sauce naturally coating the pasta, realistic sauce viscosity and pooling, subtle highlights, natural portion shape, not perfectly arranged. Plate is real ceramic with contact shadows.
+PIZZA REALISM
+Freshly baked pizza: irregular hand-shaped dough, realistic browned crust, subtle charred areas, naturally melted cheese, uneven cheese distribution, realistic toppings, natural baked texture, realistic moisture. Not a mathematically perfect circle.
+FOOD MATERIAL REALISM
+Cheese soft and melted; meat with visible fibers; bread porous; sauce with natural viscosity; pizza dough with natural air pockets; plates real ceramic.
+COLOR & EXPOSURE
+Match exposure, white balance, contrast, saturation, color temperature and dynamic range across the whole photograph. No oversaturation, no excessive HDR, no over-sharpening.
+COMPOSITION
+Natural triangular composition with burger, pasta and pizza as the three hero elements, all clearly recognizable, large enough to look appetizing on a smartphone. Balanced and premium, not overcrowded. Leave clean space for the headline and Casa logo.
+TEXT
+Main headline: “HÂLÂ DENEMEDİN Mİ?”
+Secondary line: “BURGER • MAKARNA • PİZZA”
+Clean, bold, modern premium restaurant typography, highly readable on mobile. No text over important food details. No extra slogans. No prices or discounts.
+ORDERING PLATFORMS
+At the bottom create a clean professional ordering footer. Display ONLY these four delivery platform logos: Uber Eats, Yemeksepeti, GetirYemek, Migros Yemek. Use the official logos accurately, do not redesign or distort them. Equal visual prominence, arranged horizontally with clean spacing, like a professional ordering section, NOT random stickers.
+ABSOLUTELY AVOID
+Floating food, pasted-on food, cutout appearance, PNG/sticker look, artificial drop shadows, mismatched lighting or perspective, impossible proportions, excessive smoke, fake steam, plastic cheese, rubber meat, artificial glossy sauce, perfectly symmetrical food, CGI/cartoon/surreal look, excessive HDR or sharpening, fake depth of field around cutouts, distorted or fake Casa logo.
+FINAL REALISM TEST
+The final image MUST look like a genuine professional restaurant photograph: could a real photographer have placed this food on this exact table, used one camera, taken one photograph and produced this exact image? If anything looks composited, pasted, floating or separately photographed, correct perspective, lighting, shadows, reflections, depth of field, scale and physical contact until it looks like ONE REAL PHOTOGRAPH.
+
+ACIKLAMA:
+(Ornek 3 icin aciklama verilmedi; ornek 1 ve 2'nin tarzini kullan.)
