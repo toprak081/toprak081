@@ -1,65 +1,66 @@
-# 👋 Merhaba, ben Toprak Ali Şanlı
+<h1 align="center">Toprak Ali Şanlı</h1>
 
 <p align="center">
-  <img src="https://readme-typing-svg.demolab.com?font=Fira+Code&size=24&pause=1000&color=00D9FF&center=true&vCenter=true&width=700&lines=Aspiring+C%23%2F.NET+Developer;AI+Enthusiast;Still+learning.+Still+building.+Still+improving." alt="Typing animation" />
+  <b>C# / .NET Developer Candidate</b> · Yapay Zekâ Meraklısı · Adana, Türkiye
 </p>
 
 <p align="center">
-  <a href="https://github.com/toprak081">
-    <img src="https://komarev.com/ghpvc/?username=toprak081&style=for-the-badge&color=0e75b6" alt="Profile views" />
-  </a>
+  <img src="https://readme-typing-svg.demolab.com?font=Fira+Code&weight=500&size=22&pause=1200&color=00D9FF&center=true&vCenter=true&width=640&lines=Building+clean+backends+with+C%23+%26+.NET;Learning+in+public.+Shipping+real+projects.;Curious+about+AI+%26+automation" alt="Typing animation" />
 </p>
 
-## 🧠 Hakkımda
+<p align="center">
+  <img src="https://img.shields.io/badge/C%23-239120?style=for-the-badge&logo=csharp&logoColor=white" alt="C#" />
+  <img src="https://img.shields.io/badge/.NET-512BD4?style=for-the-badge&logo=dotnet&logoColor=white" alt=".NET" />
+  <img src="https://img.shields.io/badge/SQL%20Server-CC2927?style=for-the-badge&logo=microsoftsqlserver&logoColor=white" alt="SQL Server" />
+  <img src="https://img.shields.io/badge/Git-F05032?style=for-the-badge&logo=git&logoColor=white" alt="Git" />
+</p>
 
-- 🎓 Bilgisayar Programcılığı öğrencisiyim.
-- 💻 C# ve .NET ekosisteminde kendimi geliştiriyorum.
-- 🗄️ SQL Server, Web API ve katmanlı mimari üzerine çalışıyorum.
-- 🤖 Yapay zekâ, otomasyon ve robotik projeleriyle ilgileniyorum.
-- 📍 Adana, Türkiye
+---
 
-## 🛠️ Teknolojiler
+## 👨‍💻 Hakkımda
+
+Bilgisayar Programcılığı öğrencisiyim. C# ve .NET ekosisteminde, özellikle **Web API**, **katmanlı mimari** ve **SQL Server** üzerine çalışıyorum. Yapay zekâyı uygulamalara entegre etmek ve otomasyon/robotik projeleri benim için ayrı bir ilgi alanı.
+
+> Short version: I'm a student developer focused on the C#/.NET stack, learning by building real projects.
+
+## 🛠️ Teknoloji Yığını
+
+| Alan | Araçlar |
+| --- | --- |
+| **Backend** | C#, .NET, ASP.NET Core, Web API |
+| **Frontend** | Blazor |
+| **Veritabanı** | SQL Server |
+| **Araçlar** | Git, GitHub, Visual Studio, VS Code |
 
 <p>
   <img src="https://skillicons.dev/icons?i=cs,dotnet,sql,git,github,visualstudio,vscode" alt="Technologies" />
 </p>
 
-## 🚀 Şu anda öğreniyorum
+## 🚀 Öne Çıkan Projeler
 
-```text
-C# / .NET        ███████████████░░░  80%
-ASP.NET Core     ████████████░░░░░░░  65%
-SQL Server       ███████████░░░░░░░░  60%
-Blazor           ████████░░░░░░░░░░░  45%
-Git & GitHub     ██████████░░░░░░░░░  55%
-AI Integration   ███████░░░░░░░░░░░░  40%
-```
+| Proje | Açıklama | Teknoloji |
+| --- | --- | --- |
+| [**ZaneTask**](https://github.com/toprak081/ZaneTask) | Güncel ana projem | C# |
+| [**C-Odevleri**](https://github.com/toprak081/C-Odevleri) | C# ödev ve alıştırma çalışmalarım | C# |
 
-## 📊 GitHub İstatistikleri
+## 🎯 Şu An Odağım
 
-<p>
-  <img height="165" src="https://github-readme-stats.vercel.app/api?username=toprak081&show_icons=true&theme=tokyonight&hide_border=true&rank_icon=github" alt="GitHub stats" />
-  <img height="165" src="https://github-readme-stats.vercel.app/api/top-langs/?username=toprak081&layout=compact&theme=tokyonight&hide_border=true" alt="Top languages" />
+- ASP.NET Core ile RESTful API geliştirmek
+- Katmanlı mimariyi gerçek bir projede uygulamak
+- Blazor ile arayüz tarafını öğrenmek
+- Yapay zekâ servislerini .NET uygulamalarına entegre etmek
+
+## 📊 GitHub
+
+<p align="center">
+  <img height="150" src="https://github-readme-stats.vercel.app/api/top-langs/?username=toprak081&layout=compact&theme=tokyonight&hide_border=true" alt="Top languages" />
 </p>
-
-## 🔥 Katkı Grafiği
-
-<p>
-  <img src="https://streak-stats.demolab.com?user=toprak081&theme=tokyonight&hide_border=true" alt="GitHub streak" />
-</p>
-
-## 📌 Hedefim
-
-> Öğrenmeye devam etmek, gerçek projeler geliştirmek ve her gün daha iyi bir yazılımcı olmak.
 
 ## 📫 İletişim
 
 <p>
-  <a href="https://github.com/toprak081">
-    <img src="https://img.shields.io/badge/GitHub-181717?style=for-the-badge&logo=github&logoColor=white" alt="GitHub" />
-  </a>
+  <a href="https://github.com/toprak081"><img src="https://img.shields.io/badge/GitHub-181717?style=for-the-badge&logo=github&logoColor=white" alt="GitHub" /></a>
+  <!-- E-posta / LinkedIn eklenecek -->
 </p>
 
-<p align="center">
-  <i>Still learning. Still building. Still improving.</i>
-</p>
+<p align="center"><i>Still learning. Still building. Still improving.</i></p>
