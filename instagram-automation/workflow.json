@@ -1,94 +1,355 @@
 {
-  "name": "Instagram Zamanlanmis Paylasim + Claude Icerik Uretimi",
+  "name": "Instagram Gunluk Reklam Gorseli",
   "nodes": [
     {
       "parameters": {
-        "rule": { "interval": [ { "field": "days", "triggerAtHour": 10 } ] }
+        "rule": {
+          "interval": [
+            {
+              "field": "days",
+              "triggerAtHour": 8
+            }
+          ]
+        }
       },
-      "name": "Her gun 10:00",
+      "name": "Her sabah 08:00",
       "type": "n8n-nodes-base.scheduleTrigger",
       "typeVersion": 1.2,
-      "position": [0, 0]
+      "position": [
+        0,
+        0
+      ]
     },
     {
       "parameters": {
         "assignments": {
           "assignments": [
-            { "id": "1", "name": "topic", "value": "BURAYA KONU YAZ (orn: sabah rutini ipuclari)", "type": "string" },
-            { "id": "2", "name": "imageUrl", "value": "https://BURAYA-HERKESE-ACIK-GORSEL-URL.jpg", "type": "string" },
-            { "id": "3", "name": "igUserId", "value": "BURAYA_INSTAGRAM_BUSINESS_ACCOUNT_ID", "type": "string" }
+            {
+              "id": "1",
+              "name": "examples",
+              "type": "string",
+              "value": "ORNEK 1\nGORSEL PROMPT: ...buraya ornek gorsel promptunu yaz...\nACIKLAMA: ...ornek aciklama...\nETIKETLER: #etiket1 #etiket2\n\nORNEK 2\nGORSEL PROMPT: ...\nACIKLAMA: ...\nETIKETLER: ..."
+            },
+            {
+              "id": "2",
+              "name": "logoUrl",
+              "type": "string",
+              "value": "https://BURAYA-LOGO-URL.png"
+            },
+            {
+              "id": "3",
+              "name": "igUserId",
+              "type": "string",
+              "value": "BURAYA_INSTAGRAM_BUSINESS_ACCOUNT_ID"
+            }
           ]
         }
       },
-      "name": "Ayarlar (konu, gorsel, IG ID)",
+      "name": "Ayarlar",
       "type": "n8n-nodes-base.set",
       "typeVersion": 3.4,
-      "position": [220, 0]
+      "position": [
+        220,
+        0
+      ]
     },
     {
       "parameters": {
         "method": "POST",
-        "url": "https://api.anthropic.com/v1/messages",
-        "authentication": "genericCredentialType",
-        "genericAuthType": "httpHeaderAuth",
-        "sendHeaders": true,
-        "headerParameters": { "parameters": [ { "name": "anthropic-version", "value": "2023-06-01" } ] },
-        "sendBody": true,
-        "specifyBody": "json",
-        "jsonBody": "={{ JSON.stringify({ model: 'claude-sonnet-5-5', max_tokens: 500, messages: [ { role: 'user', content: 'Instagram icin Turkce, samimi, 2-3 cumlelik bir caption yaz ve sonuna 5 ilgili hashtag ekle. Konu: ' + $json.topic + '. Sadece caption metnini dondur.' } ] }) }}"
-      },
-      "name": "Claude: caption uret",
-      "type": "n8n-nodes-base.httpRequest",
-      "typeVersion": 4.2,
-      "position": [440, 0],
-      "credentials": { "httpHeaderAuth": { "id": "", "name": "Anthropic API Key (header: x-api-key)" } }
-    },
-    {
-      "parameters": {
-        "method": "POST",
-        "url": "=https://graph.facebook.com/v21.0/{{ $('Ayarlar (konu, gorsel, IG ID)').item.json.igUserId }}/media",
+        "url": "https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5-flash:generateContent",
         "authentication": "genericCredentialType",
         "genericAuthType": "httpQueryAuth",
         "sendBody": true,
         "specifyBody": "json",
-        "jsonBody": "={{ JSON.stringify({ image_url: $('Ayarlar (konu, gorsel, IG ID)').item.json.imageUrl, caption: $json.content[0].text }) }}"
+        "jsonBody": "={{ JSON.stringify({ contents:[{parts:[{text:'Asagida dukkanim icin hazirladigim ornek reklam gorseli promptlari, aciklamalari ve etiketleri var. Bu ornekleri tarz olarak takip ederek TAMAMEN YENI ve farkli bir set uret. Sadece su JSON formatinda don: {\"image_prompt\":\"...\",\"caption\":\"...\",\"hashtags\":\"...\"}\\n\\n' + $('Ayarlar').item.json.examples}]}], generationConfig:{responseMimeType:'application/json'} }) }}"
       },
-      "name": "IG: medya konteyneri olustur",
+      "name": "Gemini: yeni prompt + aciklama uret",
       "type": "n8n-nodes-base.httpRequest",
       "typeVersion": 4.2,
-      "position": [660, 0],
-      "credentials": { "httpQueryAuth": { "id": "", "name": "Instagram Graph Token (query: access_token)" } }
+      "position": [
+        440,
+        0
+      ],
+      "credentials": {
+        "httpQueryAuth": {
+          "id": "",
+          "name": "Gemini API Key (query: key)"
+        }
+      }
     },
     {
-      "parameters": { "amount": 30, "unit": "seconds" },
-      "name": "Bekle (islenmesi icin)",
+      "parameters": {
+        "jsCode": "const t=$json.candidates[0].content.parts[0].text;\nconst o=JSON.parse(t);\nreturn [{json:{image_prompt:o.image_prompt,caption:o.caption+'\\n\\n'+o.hashtags}}];"
+      },
+      "name": "JSON ayikla",
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        660,
+        0
+      ]
+    },
+    {
+      "parameters": {
+        "url": "={{ $('Ayarlar').item.json.logoUrl }}",
+        "options": {
+          "response": {
+            "response": {
+              "responseFormat": "file"
+            }
+          }
+        }
+      },
+      "name": "Logoyu indir",
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.2,
+      "position": [
+        880,
+        0
+      ]
+    },
+    {
+      "parameters": {
+        "jsCode": "const buf=await this.helpers.getBinaryDataBuffer(0,'data');\nconst mime=$input.first().binary.data.mimeType||'image/png';\nconst p=$('JSON ayikla').first().json;\nreturn [{json:{body:{contents:[{parts:[{text:p.image_prompt+'\\n\\nPlace the attached shop logo naturally and clearly in the ad image. Keep the logo unchanged.'},{inline_data:{mime_type:mime,data:buf.toString('base64')}}]}],generationConfig:{responseModalities:['IMAGE']}}}}];"
+      },
+      "name": "Gemini istegi hazirla",
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        1100,
+        0
+      ]
+    },
+    {
+      "parameters": {
+        "method": "POST",
+        "url": "https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5-flash-image:generateContent",
+        "authentication": "genericCredentialType",
+        "genericAuthType": "httpQueryAuth",
+        "sendBody": true,
+        "specifyBody": "json",
+        "jsonBody": "={{ JSON.stringify($json.body) }}"
+      },
+      "name": "Gemini: reklam gorseli uret",
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.2,
+      "position": [
+        1320,
+        0
+      ],
+      "credentials": {
+        "httpQueryAuth": {
+          "id": "",
+          "name": "Gemini API Key (query: key)"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "method": "POST",
+        "url": "https://api.imgbb.com/1/upload",
+        "authentication": "genericCredentialType",
+        "genericAuthType": "httpQueryAuth",
+        "sendBody": true,
+        "contentType": "form-urlencoded",
+        "bodyParameters": {
+          "parameters": [
+            {
+              "name": "image",
+              "value": "={{ $json.candidates[0].content.parts.find(p => p.inlineData || p.inline_data).inlineData?.data || $json.candidates[0].content.parts.find(p => p.inline_data).inline_data.data }}"
+            }
+          ]
+        }
+      },
+      "name": "Gorseli barindir (imgbb)",
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.2,
+      "position": [
+        1540,
+        0
+      ],
+      "credentials": {
+        "httpQueryAuth": {
+          "id": "",
+          "name": "imgbb API Key (query: key)"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "method": "POST",
+        "url": "=https://graph.facebook.com/v21.0/{{ $('Ayarlar').item.json.igUserId }}/media",
+        "authentication": "genericCredentialType",
+        "genericAuthType": "httpQueryAuth",
+        "sendBody": true,
+        "specifyBody": "json",
+        "jsonBody": "={{ JSON.stringify({ image_url: $json.data.url, caption: $('JSON ayikla').first().json.caption }) }}"
+      },
+      "name": "IG: konteyner olustur",
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.2,
+      "position": [
+        1760,
+        0
+      ],
+      "credentials": {
+        "httpQueryAuth": {
+          "id": "",
+          "name": "Instagram Graph Token (query: access_token)"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "amount": 30,
+        "unit": "seconds"
+      },
+      "name": "Bekle",
       "type": "n8n-nodes-base.wait",
       "typeVersion": 1.1,
-      "position": [880, 0]
+      "position": [
+        1980,
+        0
+      ]
     },
     {
       "parameters": {
         "method": "POST",
-        "url": "=https://graph.facebook.com/v21.0/{{ $('Ayarlar (konu, gorsel, IG ID)').item.json.igUserId }}/media_publish",
+        "url": "=https://graph.facebook.com/v21.0/{{ $('Ayarlar').item.json.igUserId }}/media_publish",
         "authentication": "genericCredentialType",
         "genericAuthType": "httpQueryAuth",
         "sendBody": true,
         "specifyBody": "json",
-        "jsonBody": "={{ JSON.stringify({ creation_id: $('IG: medya konteyneri olustur').item.json.id }) }}"
+        "jsonBody": "={{ JSON.stringify({ creation_id: $('IG: konteyner olustur').first().json.id }) }}"
       },
       "name": "IG: yayinla",
       "type": "n8n-nodes-base.httpRequest",
       "typeVersion": 4.2,
-      "position": [1100, 0],
-      "credentials": { "httpQueryAuth": { "id": "", "name": "Instagram Graph Token (query: access_token)" } }
+      "position": [
+        2200,
+        0
+      ],
+      "credentials": {
+        "httpQueryAuth": {
+          "id": "",
+          "name": "Instagram Graph Token (query: access_token)"
+        }
+      }
     }
   ],
   "connections": {
-    "Her gun 10:00": { "main": [ [ { "node": "Ayarlar (konu, gorsel, IG ID)", "type": "main", "index": 0 } ] ] },
-    "Ayarlar (konu, gorsel, IG ID)": { "main": [ [ { "node": "Claude: caption uret", "type": "main", "index": 0 } ] ] },
-    "Claude: caption uret": { "main": [ [ { "node": "IG: medya konteyneri olustur", "type": "main", "index": 0 } ] ] },
-    "IG: medya konteyneri olustur": { "main": [ [ { "node": "Bekle (islenmesi icin)", "type": "main", "index": 0 } ] ] },
-    "Bekle (islenmesi icin)": { "main": [ [ { "node": "IG: yayinla", "type": "main", "index": 0 } ] ] }
+    "Her sabah 08:00": {
+      "main": [
+        [
+          {
+            "node": "Ayarlar",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Ayarlar": {
+      "main": [
+        [
+          {
+            "node": "Gemini: yeni prompt + aciklama uret",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Gemini: yeni prompt + aciklama uret": {
+      "main": [
+        [
+          {
+            "node": "JSON ayikla",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "JSON ayikla": {
+      "main": [
+        [
+          {
+            "node": "Logoyu indir",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Logoyu indir": {
+      "main": [
+        [
+          {
+            "node": "Gemini istegi hazirla",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Gemini istegi hazirla": {
+      "main": [
+        [
+          {
+            "node": "Gemini: reklam gorseli uret",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Gemini: reklam gorseli uret": {
+      "main": [
+        [
+          {
+            "node": "Gorseli barindir (imgbb)",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Gorseli barindir (imgbb)": {
+      "main": [
+        [
+          {
+            "node": "IG: konteyner olustur",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "IG: konteyner olustur": {
+      "main": [
+        [
+          {
+            "node": "Bekle",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Bekle": {
+      "main": [
+        [
+          {
+            "node": "IG: yayinla",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    }
   },
-  "settings": { "executionOrder": "v1" }
+  "settings": {
+    "executionOrder": "v1"
+  }
 }
