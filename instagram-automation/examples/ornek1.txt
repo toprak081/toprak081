@@ -1,0 +1,88 @@
+ORNEK 1
+GORSEL PROMPT:
+Create a premium, ultra-realistic commercial food advertisement for Casa restaurant.
+FORMAT:
+
+* Vertical 3:4 portrait
+* Instagram feed advertisement
+* Professional restaurant food photography
+
+MAIN VISUAL:
+Show a premium collection of Casa burgers on a dark walnut restaurant table.
+There are 7 burger categories, and each category has:
+
+* 1 beef burger
+* 1 crispy chicken burger
+
+Total: 14 burgers.
+Arrange them neatly and elegantly. Do not create a chaotic pile. Make the burgers clearly visible.
+BEEF BURGERS:
+Premium grilled beef patties, toasted buns, fresh ingredients and realistic sauce.
+CRISPY CHICKEN BURGERS:
+Golden crispy chicken fillets, crunchy coating, toasted buns, fresh ingredients and realistic sauce.
+The sauces must look natural and physically present inside the burgers.
+PRODUCT NAMES:
+Write these names EXACTLY as written below:
+"Louisiana acı biber soslu burger"
+"Chili Mayolu Burger"
+"trüflü mayonezli burger"
+"trüflü mayonezli acı soslu burger"
+"Sriracha Mayolu Burger"
+"Belçika Barbekülü Burger"
+"Burger Soslu Burger"
+Do not change, translate, shorten, capitalize differently or misspell any product name.
+For "Burger Soslu Burger", use a classic creamy burger sauce.
+For "trüflü mayonezli acı soslu burger", clearly show a realistic combination of truffle mayonnaise and spicy sauce inside the burger.
+STYLE:
+Premium Turkish restaurant advertising.
+Dark walnut table.
+Warm 3000–3200K restaurant lighting.
+Warm amber background bokeh.
+Natural realistic shadows.
+Realistic food textures.
+Professional Canon EOS R5 + 100mm macro photography look.
+Natural optical depth of field.
+Realistic lens compression.
+High detail but completely photorealistic.
+TEXT:
+Main headline:
+"YENİ SOSLU BURGERLER"
+Subheadline:
+"Et veya çıtır tavuk seçenekleriyle"
+Place each product name clearly beside its corresponding burger pair.
+LOGO:
+Use the uploaded Casa logo exactly as provided.
+Do not redraw, recreate, recolor, restyle, distort or modify the logo.
+IMPORTANT:
+Real photographed food appearance.
+No CGI.
+No 3D render.
+No floating burgers.
+No plastic-looking food.
+No fake smoke.
+No excessive steam.
+No fog.
+No glowing effects.
+No distorted buns.
+No malformed patties.
+No duplicated burgers.
+No missing burger versions.
+No invented product names.
+No changed product names.
+No spelling mistakes.
+No chaotic composition.
+Final result must look like a premium professionally photographed Casa restaurant advertisement.
+
+ACIKLAMA:
+Yeni soslu burgerler Casa’da!
+
+Louisiana acı biber soslu, Chili Mayolu, trüflü mayonezli, trüflü mayonezli acı soslu, Sriracha Mayolu, Belçika Barbekülü ve Burger Soslu Burger seçenekleri seni bekliyor.
+
+Üstelik hepsinde **Et veya Çıtır Tavuk** seçeneği var.
+
+Canın hangisini çektiyse, Casa’dan söyle.
+
+📲 Uber Eats • Yemeksepeti • GetirYemek • Migros Yemek
+
+ETIKETLER:
+#Casa #CasaBurger #Burger #Hamburger #SosluBurger #ÇıtırTavukBurger #EtBurger #AdanaBurger #AdanaYemek #Sarıçam #Adana #BurgerLovers #YemekSiparişi
